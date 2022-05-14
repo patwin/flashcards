@@ -1,0 +1,50 @@
+@import url("baseStyle.css");
+@import url("staticCssClasses.css");
+
+/*==================== STATIC CSS CLASSES ====================*/
+#flashcardcontainer {
+    display: flex;
+    flex-flow: column;
+    margin-top: 15px;
+    justify-content:center;
+    margin-bottom: 15px;
+}
+
+ol {
+    padding: 15px;
+}
+
+ol input[type=checkbox] {
+    display: none;
+}
+
+/*==================== REUSABLE CSS CLASSES ====================*/
+.cardcontainer {
+    width: 300px;   
+    border-radius: 10px;
+    background-color: var(--clr-dark-accent);
+    display: inline;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.cardcontainer h3, h4{
+    display: inline;
+}
+
+.cardcontainer h4 {
+    float: right;
+}
+
+.cardcontainer p {
+    margin-top: 10px;
+    display: block;
+}
+
+
+.cardcontainer:hover {
+    cursor: pointer;
+}
+
+
+/*==================== BUTTONS====================*/

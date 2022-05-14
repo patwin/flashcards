@@ -1,0 +1,59 @@
+/*==================== GOOGLE FONTS ====================*/
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap");
+
+
+/*==================== VARIABLES CSS ====================*/
+:root {
+    /* =================== Colors =================== */
+    --clr-main-brand: hsl(132, 37%, 68%);
+    --clr-light-accent: hsl(28, 11%, 51%);
+    --clr-dark-accent: hsl(153, 23%, 46%);
+    --clr-dark-background: hsl(75, 12%, 7%);
+  
+    --fc-paragraph: hsl(12, 11%, 91%);
+    --fc-heading: hsl(132, 37%, 68%);
+  
+    /* =================== Font and typography =================== */
+    --font-size: 15px;
+  
+    --ff-heading: "Big Shoulders Display", cursive;
+    --ff-paragraph: "Lexend Deca", sans-serif;
+  
+    /* =================== Font weight =================== */
+    --fw-heading: 700;
+    --fw-paragraph: 400;
+}
+
+
+/*==================== BASE ====================*/
+* {
+    font-family: var(--ff-paragraph);
+    color: var(--fc-paragraph);
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  body {
+    background-color: var(--clr-dark-background);
+    opacity: 1.6;
+  }
+  
+  h1, h2, h3, h4, h5 {
+    font-family: var(--ff-heading);
+    font-weight: var(--fw-heading);
+    color: var(--fc-heading);
+  }
+  
+  h1 {
+    font-size: 36px;
+    clear: right;
+  }
+  
+  h2 {
+    font-size: 22px;
+  }
+  
+  p {
+    font-weight: var(--fw-paragraph);   
+    font-size: 16px; 
+  }

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flashcards</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="/css/learncardStyle.css">
+    </head>
+
+    <body>
+        <div id="maincontainer">
+            <!-- =============== HEADER =============== -->
+            <%- include("includes/header.ejs") %>
+
+            <!-- =============== NAVBAR =============== -->
+            <%- include("includes/navbar.ejs") %>
+
+            <!-- =============== MAINCONTENT =============== -->
+            <main>
+                <div id="flashcardcontainer">
+                    <div class="cardcontainer" onclick="checkSolution()">
+                        <h3><%= randomcard.title %></h3>
+                        <% if (randomcard.isMultipleChoice()) { %>
+                            <h4>multiple choice</h4>
+                        <% } %>
+                        <p>
+                            <%= randomcard.question %>
+                        </p>
+                        <p>
+                           <ol>
+                            <% for (let i = 0; i < randomcard.answers.length; i++) { %>
+                                <li class="answers"><%= randomcard.answers[i].text %></li>
+                                <% if (randomcard.answers[i].isCorrect) { %>
+                                    <input class="isCorrect" type="checkbox" disabled checked="true">
+                                <% } else { %>
+                                    <input class="isCorrect" type="checkbox" disabled>
+                                <% } %>   
+                            <% } %>
+                            </ol> 
+                        </p>                        
+                    </div>
+                    <a href="learnCategory$<%= category.name %>=<%= category.id %>"">New card</a>
+                </div>                
+            </main>
+            <!-- =============== FOOTER =============== --> 
+            <%- include("includes/footer.ejs") %>  
+        </div>   
+        <script src="/js/checksolution.js"></script>
+    </body>
+</html>

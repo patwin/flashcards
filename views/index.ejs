@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flashcards</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="/css/indexStyle.css">
+    </head>
+
+    <body>
+        <div id="maincontainer">
+            <!-- =============== HEADER =============== -->
+            <%- include("includes/header.ejs") %>
+
+            <!-- =============== NAVBAR =============== -->
+            <%- include("includes/navbar.ejs") %>
+
+            <!-- =============== MAINCONTENT =============== -->
+            <main>
+                <div id="flashcardcontainer">
+                    <% for (let category of categories) { %>
+                    <a href="category$<%= category.name %>=<%= category.id %>">
+                        <div class="kategoriecontainer">
+                            <h2><%= category.name %></h2>
+                            <p><bold><%= db.getNumberOfFlashcardsInCategory(category) %> Cards</bold></p>
+                        </div>
+                    </a>
+                    <% } %>
+                    <div id="addKategorie" class="kategoriecontainer" onclick="openForm()">
+                        <img src="/img/plus.svg" alt="Kategorie hinzufügen" name="addkategorie">
+                    </div>   
+
+                    <div class="form-popup" id="addKategorieForm">
+                        <form action="newCategory" class="form-container" method="POST">
+                            <h2>Add category</h2>
+                            <input type="text" name="newCategory" placeholder="Enter name" required>
+                            <button type="submit" class="btn">Add</button>
+                            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </main>
+            <!-- =============== FOOTER =============== --> 
+            <%- include("includes/footer.ejs") %>  
+        </div>   
+
+        <!-- JavaScript Datei einbinden -->
+        <script src="/js/popup.js"></script>
+    </body>
+</html>

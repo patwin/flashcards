@@ -1,0 +1,89 @@
+/*==================== IMPORTS ====================*/
+@import url("baseStyle.css");
+@import url("staticCssClasses.css");
+
+
+/*==================== STATIC CSS CLASSES ====================*/
+#flashcardcontainer {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 15px;
+    justify-content: space-between;
+}
+
+#flashcardcontainer a {
+    text-decoration: none;
+}
+
+/*==================== REUSABLE CSS CLASSES ====================*/
+.kategoriecontainer {
+    width: 200px;
+    height: 200px;    
+    background: linear-gradient(var(--clr-light-accent) 0 0) var(--p, 0) / var(--p, 0) no-repeat;
+    transition: .4s, background-position 0s;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--clr-dark-accent);
+}
+
+.kategoriecontainer:hover {
+    --p: 100%;
+    color: #fff;
+}
+
+.kategoriecontainer img {
+    width: 80%;
+    height: auto;
+}
+
+.form-popup {
+    display: none;
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: var(--fc-paragraph);
+    border-radius: 15px;
+}
+
+.form-container input[type=text] {
+    width: 90%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    color: var(--clr-dark-background);
+    background-color: var(--fc-paragraph);
+    border-bottom: 2px solid var(--clr-dark-accent);
+}
+
+.form-container input[type=text]:focus {
+    outline: none;
+}
+
+/*==================== BUTTONS====================*/
+.form-container .btn {
+    background-color: var(--clr-main-brand);
+    color: var(--fc-paragraph);
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+.form-container .cancel {
+    background-color: red;
+    opacity: 0.6;
+}
+
+.form-container .btn:hover {
+    opacity: 1;
+}

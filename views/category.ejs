@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flashcards</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="/css/cardoverviewStyle.css">
+    </head>
+
+    <body>
+        <div id="maincontainer">
+            <!-- =============== HEADER =============== -->
+            <%- include("includes/header.ejs") %>
+
+            <!-- =============== NAVBAR =============== -->
+            <%- include("includes/navbar.ejs") %>
+
+            <!-- =============== MAINCONTENT =============== -->
+            <main>
+                <h2>Cards of category: <%= category.name %></h2>
+                <a href="learnCategory$<%= category.name %>=<%= category.id %>">Learn cards of Category <%= category.name %></a>
+                <div id="flashcardcontainer">
+                    <% for (let flashcard of flashcards) { %>        
+
+                        <div class="cardcontainer">
+                            <h3><%= flashcard.title %></h3> 
+                                <% if (flashcard.isMultipleChoice()) { %>
+                                    <h4>multiple choice</h4>
+                                <% } %>
+                            <p>
+                                <%= flashcard.question %>
+                            </p>
+                            <p>
+                                <%= flashcard.answers.length %> Antworten verfügbar
+                            </p>
+                        </div>   
+                    <% } %>
+
+                    <div id="addCard" class="addcardcontainer" onclick="openForm()">
+                        <img src="/img/plus.svg" alt="Karte hinzufügen" name="addkategorie">
+                    </div> 
+
+                    <div class="form-popup" id="addCardForm">
+                        <form action="newCard$<%= category.name %>=<%= category.id %>" class="form-container" method="POST">
+                            <h2>Add Card</h2>
+                            <input type="text" name="title" placeholder="Enter title" required>
+                            <input type="text" name="question" placeholder="Enter question" required>
+                            <input type="text" name="answer" placeholder="Enter answer" required>
+                            <input type="checkbox" name="isCorrect1" value="isCorrect">
+                            <input type="text" name="answer" placeholder="Enter answer" required>
+                            <input type="checkbox" name="isCorrect2" value="isCorrect">
+                            <input type="text" name="answer" placeholder="Enter answer">
+                            <input type="checkbox" name="isCorrect3" value="isCorrect">
+                            <input type="text" name="answer" placeholder="Enter answer">
+                            <input type="checkbox" name="isCorrect4" value="isCorrect">
+                            <input type="text" name="answer" placeholder="Enter answer">
+                            <input type="checkbox" name="isCorrect5" value="isCorrect">
+                            <button type="submit" class="btn">Add</button>
+                            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </main>
+            <!-- =============== FOOTER =============== --> 
+            <%- include("includes/footer.ejs") %>  
+        </div>   
+        <script src="/js/newcardpopup.js"></script>
+    </body>
+</html>

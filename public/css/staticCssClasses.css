@@ -1,0 +1,38 @@
+/*==================== HEADER ====================*/
+header {
+    grid-area: header;
+    margin-top: 5px;
+}
+
+/*==================== NAV ====================*/
+nav {
+    grid-area: nav;
+    margin-top: 30px;
+    background-color: var(--clr-main-brand);
+}
+
+/*==================== MAIN ====================*/
+main {
+    grid-area: main;
+    margin-top: 30px;
+}
+
+/*==================== ASIDE ====================*/
+/*==================== FOOTER ====================*/
+footer {
+    grid-area: footer;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/*==================== STATIC CSS CLASSES ====================*/
+#maincontainer {
+    display: grid;
+    padding: 10px;
+    width: 60%;
+    margin:auto;
+    grid-template-areas: "header"
+                         "navbar"
+                         "main"
+                         "footer";
+}
